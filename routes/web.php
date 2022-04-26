@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use \App\Http\Controllers\TestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,31 +17,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('/my-name', function () {
-    return 'Пивоваров Вадим Павлович';
-});
-
-Route::get('/my-friend', function () {
-   return 'список друзей епта';
-});
-
-Route::get('/get-friend/{name}', function ($name){
-    return $name;
-});
-
-Route::get('/my-city/{city}', function ($city){
-    return $city;
-});
-
-Route::get('/level/{lvl}', function ($lvl){
-    return 'бобр';
-});
-
-Route::get('/power', function (){
-    $url = route('power');
-    return $url;
-});
-
-Route::get('/test', function (){
-})->name('power');
+Route::get('my-route', [TestController::class, 'lessonOne']);
+Route::get('data', [TestController::class, 'lessonTow']);
+Route::get('chrtt', [TestController::class, 'chrt']);
+Route::get('name', [TestController::class, 'ivan']);
+Route::get('fr', [TestController::class, 'ivan1']);
+Route::get('chi', [TestController::class, 'chisla']);
+Route::get('chi1', [TestController::class, 'chisla1']);
+Route::get('sh', [TestController::class, 'shifr']);
+Route::get('template/{detach}', [TestController::class, 'lessonTemplateOne']);
